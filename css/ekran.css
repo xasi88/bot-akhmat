@@ -23,14 +23,14 @@ main { max-width: 560px; margin: 0 auto; }
 .bolshoy { background: var(--c-zelen); padding: var(--s-2) var(--s-4) var(--s-6); }
 .bolshoy .pod { font-size: var(--t-14); color: var(--c-myata); }
 .bolshoy .komandy { font-size: var(--t-64); margin-top: var(--s-2); overflow-wrap: anywhere; }
-.bolshoy .kogda { font-size: var(--t-40); color: var(--c-biruza); margin-top: var(--s-2); }
+.bolshoy .kogda { font-size: var(--t-40); color: var(--c-zoloto); margin-top: var(--s-2); }
 .bolshoy .dop { font-size: var(--t-14); color: var(--c-myata); margin-top: var(--s-2); }
 
 .blok { padding: var(--s-4); display: flex; flex-direction: column; gap: var(--s-2); }
-.blok h2 { font: 700 var(--t-20) var(--f-zag); color: var(--c-tuman); margin-top: var(--s-2); }
+.blok h2 { font: 700 var(--t-20) var(--f-zag); color: var(--c-biruza); margin-top: var(--s-2); }
 
 /* Строка матча */
-.match { display: flex; align-items: center; gap: var(--s-3); min-height: 56px; border-bottom: 1px solid rgba(216, 235, 231, .08); }
+.match { display: flex; align-items: center; gap: var(--s-3); min-height: 56px; border-bottom: 1px solid var(--c-liniya); }
 .match .tochka { width: 10px; height: 10px; border-radius: 50%; flex: none; background: transparent; }
 .match .tochka.pobeda { background: var(--c-pobeda); }
 .match .tochka.nichya { background: var(--c-nichya); }
@@ -39,7 +39,7 @@ main { max-width: 560px; margin: 0 auto; }
 .match .kto small { display: block; font-size: var(--t-12); color: var(--c-tuman); }
 .match .schet { font: 700 var(--t-28) var(--f-zag); text-align: right; }
 .match .schet small { display: block; font: 400 var(--t-12) var(--f-tekst); color: var(--c-tuman); }
-.match .vremya { font: 700 var(--t-20) var(--f-zag); color: var(--c-myata); text-align: right; }
+.match .vremya { font: 700 var(--t-20) var(--f-zag); color: var(--c-zoloto); text-align: right; }
 
 .mesto { display: flex; justify-content: space-between; align-items: center; gap: var(--s-3); min-height: var(--knopka);
   background: var(--c-zelen-2); border-radius: var(--r-1); padding: var(--s-3) var(--s-4); text-align: left; width: 100%; }
@@ -56,11 +56,12 @@ main { max-width: 560px; margin: 0 auto; }
 .tabl { width: 100%; border-collapse: collapse; font-size: var(--t-14); }
 .tabl th { font-weight: 400; font-size: var(--t-12); color: var(--c-tuman); text-align: right; padding: var(--s-2) var(--s-1); }
 .tabl th.k { text-align: left; }
-.tabl td { height: 44px; padding: 0 var(--s-1); text-align: right; border-bottom: 1px solid rgba(216, 235, 231, .08); }
+.tabl td { height: 44px; padding: 0 var(--s-1); text-align: right; border-bottom: 1px solid var(--c-liniya); }
 .tabl td.m { width: 32px; text-align: center; font: 700 var(--t-20) var(--f-zag); }
 .tabl td.k { text-align: left; }
 .tabl td.k small { display: block; font-size: var(--t-12); color: var(--c-tuman); }
-.tabl td.o { width: 40px; font: 700 var(--t-20) var(--f-zag); }
+.tabl td.o { width: 40px; font: 700 var(--t-20) var(--f-zag); color: var(--c-zoloto); }
+.tabl tr.ah td.o { color: var(--c-glub); }
 .tabl td.v { color: var(--c-tuman); }
 .tabl tr.ah td { background: var(--c-biruza); color: var(--c-glub); border-bottom-color: transparent; }
 .tabl tr.ah td.k small, .tabl tr.ah td.v { color: var(--c-glub); }
@@ -70,6 +71,44 @@ main { max-width: 560px; margin: 0 auto; }
 
 .vnizu { padding: var(--s-4); font-size: var(--t-12); color: var(--c-tuman); }
 .vnizu .vnimanie { color: var(--c-myata); }
+
+/* Форма: пять точек под названием команды */
+.forma { display: flex; gap: 3px; margin-top: 2px; }
+.forma i { width: 8px; height: 8px; border-radius: 50%; background: var(--c-nichya); }
+.forma i.pobeda { background: var(--c-pobeda); }
+.forma i.porazh { background: var(--c-porazh); }
+.tabl tr.ah .forma i { outline: 1px solid var(--c-glub); }
+
+/* Плитки статистики */
+.plitki { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-2); }
+.plitka { background: var(--c-zelen-2); border-radius: var(--r-1); padding: var(--s-3); display: flex; flex-direction: column; gap: var(--s-1);
+  font-size: var(--t-12); color: var(--c-myata); }
+.plitka .zag { font-size: var(--t-40); color: var(--c-bel); }
+.plitka.yarko { background: var(--c-biruza); color: var(--c-glub); }
+.plitka.yarko .zag { color: var(--c-glub); }
+.rekord { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-1) var(--s-3); padding: var(--s-3) 0; border-bottom: 1px solid var(--c-liniya); }
+.rekord .pod { width: 100%; font-size: var(--t-12); color: var(--c-tuman); }
+.rekord .zag { font-size: var(--t-28); color: var(--c-zoloto); }
+.rekord .zag.pobeda { color: var(--c-pobeda); }
+.rekord .zag.porazh { color: var(--c-porazh); }
+.rekord.ah .zag { color: var(--c-biruza); }
+
+/* Сетка плей-офф: этапы в ряд, листаются вбок */
+.setka { display: flex; gap: var(--s-3); overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--c-biruza) transparent; scroll-snap-type: x mandatory; padding-bottom: var(--s-2); margin: 0 calc(-1 * var(--s-4)); padding-left: var(--s-4); padding-right: var(--s-4); }
+.etap { flex: 0 0 78%; max-width: 260px; display: flex; flex-direction: column; gap: var(--s-2); scroll-snap-align: start; }
+.etap h3 { font: 700 var(--t-20) var(--f-zag); color: var(--c-zoloto); }
+.para { background: var(--c-zelen-2); border-radius: var(--r-1); padding: var(--s-2) var(--s-3); display: flex; flex-direction: column; gap: var(--s-1); }
+.para .kom { display: flex; align-items: center; gap: var(--s-3); min-height: 32px; color: var(--c-myata); }
+.para .kom .imya { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.para .kom .zag { font-size: var(--t-20); width: 20px; text-align: center; }
+.para .kom.proshla { color: var(--c-bel); font-weight: 700; }
+.para .kom.proshla .zag { color: var(--c-biruza); }
+.para .kom.ahm .imya { color: var(--c-biruza); }
+.para small { font-size: var(--t-12); color: var(--c-tuman); }
+.para.pustaya { color: var(--c-tuman); font-size: var(--t-14); min-height: 72px; justify-content: center; border: 2px dashed var(--c-liniya); background: transparent; }
+.para.final { background: var(--c-zoloto); color: var(--c-glub); padding: var(--s-4); }
+.para.final .zag { font-size: var(--t-28); }
+.para.final small { color: var(--c-glub); font-size: var(--t-14); }
 
 /* Нижняя панель разделов */
 .panel { position: fixed; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(4, 1fr);
